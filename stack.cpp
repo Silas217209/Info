@@ -79,6 +79,7 @@ int main() {
     std::cout << "\n";
 
     pop();
+    pop();
     showStack();
     std::cout << "\n";
 
