@@ -5,9 +5,9 @@ struct Bier {
     std::string name;
     double preis;
     Bier *next;
-} *head, *tail;
+} *head, *tail, *runner;
 
-void initStack() {
+void initQ() {
     head = new Bier;
     tail = new Bier;
 
@@ -18,19 +18,23 @@ void initStack() {
     tail->name = "";
 
     head->next = tail;
+
+    runner = head;
 }
 
-void push(const std::string &name, const double &preis) {
+void enQ(const std::string &name, const double &preis) {
     Bier *b = new Bier;
 
     b->name = name;
     b->preis = preis;
 
-    b->next = head->next;
-    head->next = b;
+    b->next = tail;
+    runner->next = b;
+
+    runner = b;
 }
 
-int pop() {
+int deQ() {
     if (head->next == tail) return 1;
 
     const Bier *b = head->next;
@@ -41,9 +45,9 @@ int pop() {
     return 0;
 }
 
-Bier top() { return *head->next; }
+Bier first() { return *head->next; }
 
-void deleteStack() {
+void deleteQ() {
     Bier *runner = head;
     while (runner->next != NULL) {
         Bier *tmp = runner;
@@ -55,7 +59,7 @@ void deleteStack() {
 
 bool isEmpty() { return head->next == tail; }
 
-void showStack() {
+void showQ() {
     Bier *runner = head;
     while (runner->next != NULL) {
         if (runner != head && runner != tail) std::cout << runner->name << " - " << runner->preis << "\n";
@@ -64,24 +68,24 @@ void showStack() {
 }
 
 int main() {
-    initStack();
+    initQ();
 
-    push("A", 1.5);
-    showStack();
+    enQ("A", 1.5);
+    showQ();
     std::cout << "\n";
 
-    push("B", 0.5);
-    showStack();
+    enQ("B", 0.5);
+    showQ();
     std::cout << "\n";
 
-    push("C", 2.0);
-    showStack();
+    enQ("C", 2.0);
+    showQ();
     std::cout << "\n";
 
-    pop();
-    showStack();
+    deQ();
+    showQ();
     std::cout << "\n";
 
-    deleteStack();
+    deleteQ();
     return 0;
 }
