@@ -1,17 +1,1 @@
-[
-  {
-    "arguments": [
-      "/usr/lib64/ccache/g++",
-      "-c",
-      "-std=c++98",
-      "-Wall",
-      "-Wextra",
-      "-o",
-      "bin/sorted",
-      "sorted.cpp"
-    ],
-    "directory": "/home/silas/Projects/Info",
-    "file": "/home/silas/Projects/Info/sorted.cpp",
-    "output": "/home/silas/Projects/Info/bin/sorted"
-  }
-]
+./build/compile_commands.json
