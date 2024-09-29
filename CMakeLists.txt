@@ -11,4 +11,6 @@ add_executable(queue queue.cpp)
 add_executable(sorted sorted.cpp)
 add_executable(stack stack.cpp)
 add_executable(stack_sorted stack_sorted.cpp)
+add_executable(heap_array heap_array.cpp)
+add_executable(informatiker_sorted informatiker_sorted.cpp)
 
