@@ -56,7 +56,7 @@ void deleteStack() {
 bool isEmpty() { return head->next == tail; }
 
 
-// nicht benötigt
+// nicht gefordert
 void showStack() {
     Bier *runner = head;
     while (runner->next != NULL) {
