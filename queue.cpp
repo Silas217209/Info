@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 struct Bier {
-    std::string name;
+    string name;
     double preis;
     Bier *next;
 } *head, *tail, *runner;
@@ -22,7 +24,7 @@ void initQ() {
     runner = head;
 }
 
-void enQ(const std::string &name, const double &preis) {
+void enQ(string name, double preis) {
     Bier *b = new Bier;
 
     b->name = name;
@@ -34,15 +36,13 @@ void enQ(const std::string &name, const double &preis) {
     runner = b;
 }
 
-int deQ() {
-    if (head->next == tail) return 1;
+void deQ() {
+    if (head->next == tail) return;
 
     const Bier *b = head->next;
     head->next = b->next;
 
     delete b;
-
-    return 0;
 }
 
 Bier first() { return *head->next; }
@@ -59,10 +59,12 @@ void deleteQ() {
 
 bool isEmpty() { return head->next == tail; }
 
+
+// nicht gefordert, nur zum visualisieren
 void showQ() {
     Bier *runner = head;
     while (runner->next != NULL) {
-        if (runner != head && runner != tail) std::cout << runner->name << " - " << runner->preis << "\n";
+        if (runner != head && runner != tail) cout << runner->name << " - " << runner->preis << "\n";
         runner = runner->next;
     }
 }
@@ -72,19 +74,19 @@ int main() {
 
     enQ("A", 1.5);
     showQ();
-    std::cout << "\n";
+    cout << "\n";
 
     enQ("B", 0.5);
     showQ();
-    std::cout << "\n";
+    cout << "\n";
 
     enQ("C", 2.0);
     showQ();
-    std::cout << "\n";
+    cout << "\n";
 
     deQ();
     showQ();
-    std::cout << "\n";
+    cout << "\n";
 
     deleteQ();
     return 0;
