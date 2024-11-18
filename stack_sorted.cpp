@@ -22,13 +22,13 @@ void push(const int value) {
     b->value = value;
 
     while (true) {
-        Element* tmp = runner->next;
+        Element *tmp = runner->next;
         if (tmp == tail || tmp->value < value) break;
         runner = tmp;
     }
 
-   b->next = runner->next;
-   runner->next = b;
+    b->next = runner->next;
+    runner->next = b;
 }
 
 int pop() {
