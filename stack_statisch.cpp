@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 const int größe = 4;
@@ -25,10 +26,10 @@ double top() { return stack[anfang]; }
 void show_stack() {
     for (int i = anfang; i < ende; i++) {
         int index = i % größe;
-        std::cout << stack[index] << ", ";
+        cout << stack[index] << ", ";
     }
 
-    std::cout << "\n";
+    cout << "\n";
 }
 
 
